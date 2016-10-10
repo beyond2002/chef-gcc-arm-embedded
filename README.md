@@ -1,4 +1,4 @@
-# arm-gcc Cookbook
+# gcc-arm-embedded Cookbook
 
 Installs gcc-arm-embedded from a pre-built binary.  Puts the binary on the system and links it to the user's PATH.
 
@@ -23,7 +23,7 @@ Customize the attributes to suit site specific conventions and defaults.
 - `node['gcc_arm']['directories']['tmp']` - location of tmp folder to use for cookbook activities.
 
 
-### arm-gcc::default
+### gcc-arm-embedded::default
 
 <table>
   <tr>
@@ -58,7 +58,7 @@ Customize the attributes to suit site specific conventions and defaults.
   </tr>
 </table>
 
-### arm-gcc::gcc_arm
+### gcc-arm-embedded::gcc_arm
 
 <table>
   <tr>
@@ -76,7 +76,7 @@ Customize the attributes to suit site specific conventions and defaults.
   <tr>
     <td><tt>['gcc_arm'][%platform_name%]['binary']['url']</tt></td>
     <td>String</td>
-    <td>ARM-GCC-EMBED binary download URL.</td>
+    <td>gcc-arm-embedded-EMBED binary download URL.</td>
     <td><tt>https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q3-update/+download/gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2</tt></td>
   </tr>
   <tr>
@@ -99,7 +99,7 @@ Customize the attributes to suit site specific conventions and defaults.
   </tr>
 </table>
 
-### arm-gcc::gcc
+### gcc-arm-embedded::gcc
 
 <table>
   <tr>
@@ -120,29 +120,29 @@ Customize the attributes to suit site specific conventions and defaults.
 Not currently defined.
 
 ## Actions
-- `:create`: downloads the arm-gcc-embed binary and creates a 'friendly' symbolic link to the extracted directory path.
+- `:create`: downloads the gcc-arm-embedded-embed binary and creates a 'friendly' symbolic link to the extracted directory path.
 
 
 ## Usage
 
-### arm-gcc::default
+### gcc-arm-embedded::default
 
-Just include `arm-gcc` in your node's `run_list`:
+Just include `gcc-arm-embedded` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[arm-gcc]"
+    "recipe[gcc-arm-embedded]"
   ]
 }
 ```
 
 ## Examples
 
-Install arm-gcc in non-default folder with non-default user.
+Install gcc-arm-embedded in non-default folder with non-default user.
 ```ruby
- arm-gcc do
+ gcc-arm-embedded do
    user 'my-user'
    group 'my-group'
    dir '/opt/gcc-arm-embedded'
@@ -150,9 +150,9 @@ Install arm-gcc in non-default folder with non-default user.
  end
 ```
 
-Install arm-gcc in default folder for default user with non-default binary version.
+Install gcc-arm-embedded in default folder for default user with non-default binary version.
 ```ruby
- arm-gcc do
+ gcc-arm-embedded do
    linux binary [
       {
          'url' => 'https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q3-update/+download/gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2',
