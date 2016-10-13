@@ -38,16 +38,8 @@ node['gcc_arm']['directories'].each_pair do |sub_dir_name, full_path|
   end
 end
 
-#remote_file node['gcc_arm']['directories']['dir'] do
-#  source default['gcc_arm'][node[:platform]]['binary']['url']
-#  owner node['gcc_arm']['user']
-#  group node['gcc_arm']['group']
-#  mode '0755'
-#  action :create
-#end
-
 node['gcc_arm'][gcc_arm_platform_key]['binary'].each do |binary|
-  Chef::Log.info("#{binary}")
+  Chef::Log.info("ARK install :: #{binary}")
   ark "gcc-arm-embedded-#{binary['version']}" do
     url binary['url']
     version(File.basename(binary['binary_reported_version']).gsub(/[\.\s]+/,'-'))
@@ -59,7 +51,6 @@ node['gcc_arm'][gcc_arm_platform_key]['binary'].each do |binary|
     group node['gcc_arm']['group']
     mode 0755
     action :put
-#    not_if { File.exists?("#{node['gcc_arm']['home_dir']}/foobar") }
-#    only_if { File.exists?(node['gcc_arm']['executable_path']) }
+    not_if { File.directory?("#{node['gcc_arm']['dir']}/gcc-arm-embedded-#{binary['version']}") }
   end
 end
