@@ -25,96 +25,25 @@ Customize the attributes to suit site specific conventions and defaults.
 
 ### gcc-arm-embedded::default
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm']['user']</span></td>
-    <td>String</td>
-    <td>User name used for install.  The binary package will be given these user permissions and placed under this users home directory.</td>
-    <td><span style="font-family: monospace;">vagrant</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm']['group']</span></td>
-    <td>String</td>
-    <td>Group to use for install.</td>
-    <td><span style="font-family: monospace;">vagrant</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm']['dir']</span></td>
-    <td>String</td>
-    <td>Directory to place gcc_arm_embedded downloads/binaries/sources.</td>
-    <td><span style="font-family: monospace;">/home/#{node['gcc_arm']['user']}/gcc-arm-embedded</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm']['directories']['tmp']</span></td>
-    <td>String</td>
-    <td>tmp folder for cookbook-related activities</td>
-    <td><span style="font-family: monospace;">#{node['gcc_arm']['dir']}/bin</span></td>
-  </tr>
-</table>
+| Key | Type | Description | Default |
+| <span style="font-family: monospace;">['gcc_arm']['user']</span> | String | User name used for install. The binary package will be given these user permissions and placed under this users home directory. | <span style="font-family: monospace;">vagrant</span> |
+| <span style="font-family: monospace;">['gcc_arm']['group']</span> | String | Group to use for install. | <span style="font-family: monospace;">vagrant</span> |
+| <span style="font-family: monospace;">['gcc_arm']['dir']</span> | String | Directory to place gcc_arm_embedded downloads/binaries/sources. | <span style="font-family: monospace;">/home/#{node['gcc_arm']['user']}/gcc-arm-embedded</span> |
+| <span style="font-family: monospace;">['gcc_arm']['directories']['tmp']</span> | String | tmp folder for cookbook-related activities | <span style="font-family: monospace;">#{node['gcc_arm']['dir']}/bin</span> |
 
 ### gcc-arm-embedded::gcc_arm
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']</span></td>
-    <td>Array</td>
-    <td>Array of hashes that define binary source url, checksum, and versions.</td>
-    <td><span style="font-family: monospace;">none</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['url']</span></td>
-    <td>String</td>
-    <td>gcc-arm-embedded-EMBED binary download URL.</td>
-    <td><span style="font-family: monospace;">https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q3-update/+download/gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['sha256_checksum']</span></td>
-    <td>String</td>
-    <td>SHA-256 checksum of binary file.</td>
-    <td><span style="font-family: monospace;">a397c49bdd0cf17a38a494cb691baf68b8dcffa4d4c06561ef3d71b2ab4c92a1</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['version']</span></td>
-    <td>String</td>
-    <td>User-defined version number.</td>
-    <td><span style="font-family: monospace;">5.4.1</span></td>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['binary_reported_version']</span></td>
-    <td>String</td>
-    <td>Version number reported by binary (e.g. arm-none-eabi-gcc --version).</td>
-    <td><span style="font-family: monospace;">5.4.1 20160919</span></td>
-  </tr>
-</table>
+| Key | Type | Description | Default |
+| <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']</span> | Array | Array of hashes that define binary source url, checksum, and versions. | <span style="font-family: monospace;">none</span> |
+| <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['url']</span> | String | gcc-arm-embedded-EMBED binary download URL. | <span style="font-family: monospace;">https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q3-update/+download/gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2</span> |
+| <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['sha256_checksum']</span> | String | SHA-256 checksum of binary file. | <span style="font-family: monospace;">a397c49bdd0cf17a38a494cb691baf68b8dcffa4d4c06561ef3d71b2ab4c92a1</span> |
+| <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['version']</span> | String | User-defined version number. | <span style="font-family: monospace;">5.4.1</span> |
+| <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['binary_reported_version']</span> | String | Version number reported by binary (e.g. arm-none-eabi-gcc --version). | <span style="font-family: monospace;">5.4.1 20160919</span> |
 
 ### gcc-arm-embedded::gcc
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><span style="font-family: monospace;">['gcc_arm']['build-essential']['compile_time']</span></td>
-    <td>Boolean</td>
-    <td>Attempt to obtain gcc before chef does anything.</td>
-    <td><span style="font-family: monospace;">true</span></td>
-  </tr>
-</table>
+| Key | Type | Description | Default |
+| <span style="font-family: monospace;">['gcc_arm']['build-essential']['compile_time']</span> | Boolean | Attempt to obtain gcc before chef does anything. | <span style="font-family: monospace;">true</span> |
 
 ## Resources
 Not currently defined.
