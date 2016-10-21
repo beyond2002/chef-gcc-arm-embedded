@@ -26,6 +26,7 @@ Customize the attributes to suit site specific conventions and defaults.
 ### gcc-arm-embedded::default
 
 | Key | Type | Description | Default |
+|-----|------|-------------|---------|
 | <span style="font-family: monospace;">['gcc_arm']['user']</span> | String | User name used for install. The binary package will be given these user permissions and placed under this users home directory. | <span style="font-family: monospace;">vagrant</span> |
 | <span style="font-family: monospace;">['gcc_arm']['group']</span> | String | Group to use for install. | <span style="font-family: monospace;">vagrant</span> |
 | <span style="font-family: monospace;">['gcc_arm']['dir']</span> | String | Directory to place gcc_arm_embedded downloads/binaries/sources. | <span style="font-family: monospace;">/home/#{node['gcc_arm']['user']}/gcc-arm-embedded</span> |
@@ -34,6 +35,7 @@ Customize the attributes to suit site specific conventions and defaults.
 ### gcc-arm-embedded::gcc_arm
 
 | Key | Type | Description | Default |
+|-----|------|-------------|---------|
 | <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']</span> | Array | Array of hashes that define binary source url, checksum, and versions. | <span style="font-family: monospace;">none</span> |
 | <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['url']</span> | String | gcc-arm-embedded-EMBED binary download URL. | <span style="font-family: monospace;">https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q3-update/+download/gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2</span> |
 | <span style="font-family: monospace;">['gcc_arm'][%platform_name%]['binary']['sha256_checksum']</span> | String | SHA-256 checksum of binary file. | <span style="font-family: monospace;">a397c49bdd0cf17a38a494cb691baf68b8dcffa4d4c06561ef3d71b2ab4c92a1</span> |
@@ -43,6 +45,7 @@ Customize the attributes to suit site specific conventions and defaults.
 ### gcc-arm-embedded::gcc
 
 | Key | Type | Description | Default |
+|-----|------|-------------|---------|
 | <span style="font-family: monospace;">['gcc_arm']['build-essential']['compile_time']</span> | Boolean | Attempt to obtain gcc before chef does anything. | <span style="font-family: monospace;">true</span> |
 
 ## Resources
