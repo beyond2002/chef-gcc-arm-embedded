@@ -9,7 +9,7 @@ depends          'build-essential'
 depends          'apt'
 depends          'ark'
 
-source_url 'https://github.com/tenaciousRas/gcc-arm-embedded'
-issues_url 'https://github.com/tenaciousRas/gcc-arm-embedded/issues'
+source_url 'https://github.com/tenaciousRas/chef-gcc-arm-embedded'
+issues_url 'https://github.com/tenaciousRas/chef-gcc-arm-embedded/issues'
 
 chef_version '>= 12.1'
